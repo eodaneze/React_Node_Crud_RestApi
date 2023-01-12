@@ -63,4 +63,23 @@ router.put("/:id", async(req,res) => {
     }catch(err){
         res.status(400).send(err.message);
     }
+});
+
+router.delete("/:id", async(req,res) => {
+    try{
+       
+        const {id} = req.params;
+        const result = await employee.findByIdAndDelete(id);
+        if(result){
+            res.json({
+                status: "SUCCESS",
+                message:`user with the id ${id} and name ${name} has been deleted`
+            })
+        }
+        res.json(result);
+        console.log(result);
+    }
+    catch(err){
+        res.status(400).send(err.message);
+    }
 })
