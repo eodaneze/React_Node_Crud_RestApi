@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
-const url = "mongodb://127.0.0.1:27017/staffDB"
+dotenv.config()
+
+const url = process.env.MONGO_URL
 
 mongoose.connect(url, {})
 .then(() => {
@@ -9,3 +12,5 @@ mongoose.connect(url, {})
 .catch(err => {
     console.log(err);
 })
+
+// vq6O8TKLbBsLI9F5
