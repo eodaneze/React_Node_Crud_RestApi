@@ -49,3 +49,18 @@ router.get("/:id", async(req,res) => {
         res.status(400).send(err.message);
     }
 })
+
+
+// updating an existing user
+router.put("/:id", async(req,res) => {
+    try{
+        // const id = req.params.id;
+        const {id} = req.params;
+        const data = req.body;
+        const result = await employee.findByIdAndUpdate(id, data, {new: true});
+        res.json(result);
+        console.log(result);
+    }catch(err){
+        res.status(400).send(err.message);
+    }
+})
