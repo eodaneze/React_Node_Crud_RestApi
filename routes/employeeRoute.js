@@ -1,14 +1,18 @@
 const express = require("express");
-const { addUser, getAllUsers, getSingleUser, updateUser, deleteUser } = require("../controller/controller");
-const employee = require("../models/employee");
+const {
+  addUser,
+  getAllUsers,
+  getSingleUser,
+  updateUser,
+  deleteUser,
+} = require("../controller/controller");
 const router = express.Router();
 
 // adding a user
 router.post("/api/user", addUser);
 
 // getting all users
-router.get("/",getAllUsers);
-
+router.get("/", getAllUsers);
 
 // getting a single user by id
 
